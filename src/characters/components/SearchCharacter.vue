@@ -23,7 +23,7 @@
 import { Gender } from "@/characters/support/models/constants/gender";
 import { AliveStatus } from "@/characters/support/models/constants/aliveStatus";
 import { onMounted } from "vue";
-import characterService from "../services/characterService";
+import characterService from "@/characters/services/characterService";
 import filterService from "@/characters/services/filterService";
 import { ref } from "vue";
 
@@ -34,9 +34,11 @@ onMounted(() => characterService.getCharacters());
 
 const setGenderChange = (newGender: Event) => {
   filterService.setNewGenderFilter(newGender?.target?.value);
+  characterService.getCharacters();
 };
 
 const setFiltersChange = (newAliveStatus: Event) => {
   filterService.setNewAliveStatusFilter(newAliveStatus?.target?.value);
+  characterService.getCharacters();
 };
 </script>

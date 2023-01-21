@@ -12,6 +12,11 @@ export default {
     );
   },
 
+  getCharactersFromStore() {
+    const charactersStore = useCharactersStore();
+    return charactersStore.characters;
+  },
+
   setCharactersInStore(charactersToBeSetted: Character[]) {
     const charactersStore = useCharactersStore();
     charactersStore.characters = charactersToBeSetted;
