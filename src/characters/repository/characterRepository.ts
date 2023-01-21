@@ -1,13 +1,21 @@
 import http from "@/shared/support/http";
 import type { Character } from "../support/models/character";
 import apiEndpoints from "@/shared/support/constants/apiEndpoints";
+import filterService from "@/characters/services/filterService";
 
-const getCharacters = async (
-  gender: string | undefined
-): Promise<Character[] | undefined> => {
+const getCharacters = async (): Promise<Character[] | undefined> => {
+  const filters = filterService.getFilters();
   let requestParams = "";
-  if (gender) {
-    requestParams = `/?gender=${gender}`;
+  if (filters.gender && filters.status) {
+    requestParams = `/?gender=${filters.gender}&status=${filters.status}`;
+  }
+
+  if (filters.gender && !filters.status) {
+    requestParams = `/?gender=${filters.gender}`;
+  }
+
+  if (!filters.gender && filters.status) {
+    requestParams = `/?status=${filters.status}`;
   }
 
   try {

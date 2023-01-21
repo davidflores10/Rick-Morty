@@ -1,9 +1,9 @@
 export const AliveStatus = {
   ALIVE: {
-    id: "Male",
+    id: "Alive",
   },
   DEAD: {
-    id: "Female",
+    id: "Dead",
   },
   UNKWON: {
     id: "Unkwon",

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select v-model="gender">
+    <select v-model="gender" @change="setGenderChange">
       <option disabled value="">Please select one</option>
       <option>{{ Gender.MALE.id }}</option>
       <option>{{ Gender.FEMALE.id }}</option>
@@ -10,7 +10,7 @@
   </div>
 
   <div>
-    <select v-model="aliveStatus">
+    <select v-model="aliveStatus" @change="setFiltersChange">
       <option disabled value="">Please select one</option>
       <option>{{ AliveStatus.ALIVE.id }}</option>
       <option>{{ AliveStatus.DEAD.id }}</option>
@@ -22,12 +22,21 @@
 <script setup lang="ts">
 import { Gender } from "@/characters/support/models/constants/gender";
 import { AliveStatus } from "@/characters/support/models/constants/aliveStatus";
-import { ref } from "vue";
-import charactersRepository from "@/characters/repository/characterRepository";
 import { onMounted } from "vue";
 import characterService from "../services/characterService";
+import filterService from "@/characters/services/filterService";
+import { ref } from "vue";
 
-const gender = ref<string>("");
-const aliveStatus = ref<string>("");
+const filters = filterService.getFilters();
+const gender = ref<string>(filters.gender);
+const aliveStatus = ref<string>(filters.status);
 onMounted(() => characterService.getCharacters());
+
+const setGenderChange = (newGender: Event) => {
+  filterService.setNewGenderFilter(newGender?.target?.value);
+};
+
+const setFiltersChange = (newAliveStatus: Event) => {
+  filterService.setNewAliveStatusFilter(newAliveStatus?.target?.value);
+};
 </script>
