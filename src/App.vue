@@ -3,10 +3,14 @@ import { onBeforeMount } from "vue";
 import filterService from "@/characters/services/filterService";
 
 onBeforeMount(async () => {
-  const filters = JSON.parse(String(localStorage.getItem("filters")));
-  if (filters) {
-    filterService.setNewAliveStatusFilter(filters.status);
-    filterService.setNewGenderFilter(filters.gender);
+  const genderFilter = JSON.parse(String(localStorage.getItem("gender")));
+  if (genderFilter) {
+    filterService.setNewGenderFilter(genderFilter.gender);
+  }
+
+  const statusFilter = JSON.parse(String(localStorage.getItem("status")));
+  if (statusFilter) {
+    filterService.setNewGenderFilter(statusFilter.statusFilter);
   }
 });
 </script>

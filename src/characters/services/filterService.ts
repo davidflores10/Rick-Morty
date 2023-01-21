@@ -8,12 +8,12 @@ export default {
   setNewGenderFilter(newGender: string) {
     const filtersStore = useFiltersStore();
     filtersStore.gender = newGender;
-    localStorage.setItem("filters", JSON.stringify(filtersStore));
+    localStorage.setItem("gender", JSON.stringify(filtersStore.gender));
   },
 
   setNewAliveStatusFilter(newAliveStatus: string) {
     const filtersStore = useFiltersStore();
     filtersStore.status = newAliveStatus;
-    localStorage.setItem("filters", JSON.stringify(filtersStore));
+    localStorage.setItem("status", JSON.stringify(filtersStore.status));
   },
 };
