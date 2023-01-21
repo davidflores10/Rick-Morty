@@ -10,6 +10,9 @@ module.exports = {
         grey_card: {
           50: "#3c3e44",
         },
+        grey_title: {
+          50: "#9e9e9e",
+        },
       },
     },
   },
