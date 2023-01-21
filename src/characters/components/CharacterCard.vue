@@ -26,9 +26,7 @@
       <span class="text-[16px] text-grey_title-50 block">First seen in: </span>
       <a
         class="text-white hover:text-orange-600"
-        :href="
-          'https://rickandmortyapi.com/api/episode/' + character.episode[0]
-        "
+        :href="character.episode[0]"
         >{{ character.origin.name }}</a
       >
     </div>
