@@ -1,0 +1,2 @@
+build:
+  ignore_test_failure: "false"
