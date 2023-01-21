@@ -23,6 +23,11 @@
 import { Gender } from "@/characters/support/models/constants/gender";
 import { AliveStatus } from "@/characters/support/models/constants/aliveStatus";
 import { ref } from "vue";
+import charactersRepository from "@/characters/repository/characterRepository";
+import { onMounted } from "vue";
+import characterService from "../services/characterService";
+
 const gender = ref<string>("");
 const aliveStatus = ref<string>("");
+onMounted(() => characterService.getCharacters());
 </script>
