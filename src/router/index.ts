@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Characters from "@/characters/views/characters.vue";
+import Home from "@/characters/views/Home.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      name: "characters",
-      component: Characters,
+      name: "home",
+      component: Home,
     },
   ],
 });
