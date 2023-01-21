@@ -1,5 +1,5 @@
-import type { Origin } from "@/characters/support/origin";
-import type { Location } from "@/characters/support/location";
+import type { Origin } from "@/characters/support/models/origin";
+import type { Location } from "@/characters/support/models/location";
 
 export interface Character {
   id: number;
