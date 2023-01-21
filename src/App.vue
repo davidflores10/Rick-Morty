@@ -4,8 +4,10 @@ import filterService from "@/characters/services/filterService";
 
 onBeforeMount(async () => {
   const filters = JSON.parse(String(localStorage.getItem("filters")));
-  filterService.setNewAliveStatusFilter(filters.status);
-  filterService.setNewGenderFilter(filters.gender);
+  if (filters) {
+    filterService.setNewAliveStatusFilter(filters.status);
+    filterService.setNewGenderFilter(filters.gender);
+  }
 });
 </script>
 
