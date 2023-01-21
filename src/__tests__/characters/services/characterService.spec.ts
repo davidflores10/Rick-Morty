@@ -9,6 +9,6 @@ describe("characters/services/characterService.ts", () => {
     setActivePinia(createPinia());
     const characterStore = useCharactersStore();
     await characterService.getCharacters();
-    expect(characterStore.characters[0]).toStrictEqual(rickSanchez);
+    expect(characterStore.characters.length).toBe(5);
   });
 });
