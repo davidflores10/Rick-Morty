@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-green-900">
-    <div v-for="character in characters" :key="character.id">
+  <div class="bg-grey_bg-50 flex flex-wrap">
+    <div v-for="character in characters" :key="character.id" class="w-fit">
       <CharacterCard :character="character" />
     </div>
   </div>
