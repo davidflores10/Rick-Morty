@@ -6,6 +6,6 @@ export const AliveStatus = {
     id: "Dead",
   },
   UNKWON: {
-    id: "Unkwon",
+    id: "Unknown",
   },
 };

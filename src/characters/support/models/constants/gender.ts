@@ -9,6 +9,6 @@ export const Gender = {
     id: "Genderless",
   },
   UNKWON: {
-    id: "Unkwon",
+    id: "unknown",
   },
 };
